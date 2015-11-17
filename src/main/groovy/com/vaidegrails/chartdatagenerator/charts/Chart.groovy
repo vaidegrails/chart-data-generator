@@ -9,6 +9,5 @@ abstract class Chart<T> {
         this.type = T
     }
 
-    static constraints = {
-    }
+    static abstract Chart create(ChartData chartData)
 }

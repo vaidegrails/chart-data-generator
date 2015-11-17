@@ -7,6 +7,4 @@ abstract class DataSeries {
     String name
     ArrayList data
 
-    static constraints = {
-    }
 }

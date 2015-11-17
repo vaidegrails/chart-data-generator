@@ -1,5 +1,6 @@
 package com.vaidegrails.chartdatagenerator.engine
 
+import com.vaidegrails.chartdatagenerator.charts.ChartType
 import com.vaidegrails.chartdatagenerator.factories.ChartFactory
 
 class ChartEngine {
@@ -20,6 +21,10 @@ class ChartEngine {
         this.factories.add(factory)
     }
 
-    static constraints = {
+    ChartFactory findFactory(Class chartType, String plugin = null) {
+        factories.find {
+            it.type = chartType.class
+        }
     }
+
 }

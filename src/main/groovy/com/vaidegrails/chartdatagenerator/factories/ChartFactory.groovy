@@ -4,7 +4,7 @@ import com.vaidegrails.chartdatagenerator.charts.Chart
 import com.vaidegrails.chartdatagenerator.charts.ChartData
 import com.vaidegrails.chartdatagenerator.charts.ChartType
 
-abstract class ChartFactory<T/* extends ChartType*/> {
+abstract class ChartFactory<T extends ChartType, P extends Chart> {
 
     Class type
 
@@ -13,8 +13,19 @@ abstract class ChartFactory<T/* extends ChartType*/> {
         println "Creating factory for the type: ${type.canonicalName}"
     }
 
-    abstract Chart createChart(ChartData data)
+    P createChart(Closure getData){
+        def data = getData.run()
+        ChartData chartData = convertData(data)
 
-    static constraints = {
+        P.create(chartData)
+    }
+
+    ChartData convertData(chartData) {
+
+    }
+
+    @Override
+    String toString() {
+        return "Factory ${this.class}"
     }
 }

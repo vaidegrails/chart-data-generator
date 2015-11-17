@@ -4,6 +4,4 @@ class ChartType {
 
     String name
 
-    static constraints = {
-    }
 }

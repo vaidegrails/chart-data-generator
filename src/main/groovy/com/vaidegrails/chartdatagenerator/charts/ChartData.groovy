@@ -6,6 +6,4 @@ abstract class ChartData {
 
     DataSeries series
 
-    static constraints = {
-    }
 }
